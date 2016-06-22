@@ -30,32 +30,30 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
   if ((self = [super initWithFrame:frame])) {
+    
+    
     super.backgroundColor = [UIColor clearColor];
     _automaticallyAdjustContentInsets = YES;
     _contentInset = UIEdgeInsetsZero;
-    _webView = [[WKWebView alloc] initWithFrame:self.bounds];
+    
+    /******** Veckopengen WkWebView Configuration ************/
+    WKUserContentController * userContentController = [[WKUserContentController alloc] init];
+    WKWebViewConfiguration * configuration = [[WKWebViewConfiguration alloc] init];
+    configuration.userContentController = userContentController;
+
+    MessageHandlerOpenScheme * messageHandlerOpenScheme = [[MessageHandlerOpenScheme alloc] init];
+    messageHandlerOpenScheme.parent = self;
+    [userContentController addScriptMessageHandler:messageHandlerOpenScheme name:@"trustlyOpenURLScheme"];
+    /******** Veckopengen WkWebView Configuration ************/
+    
+    _webView = [[WKWebView alloc] initWithFrame:self.bounds configuration:configuration];
     _webView.navigationDelegate = self;
     [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     [self addSubview:_webView];
   }
   return self;
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    WKUserContentController * userContentController = [[WKUserContentController alloc] init];
-    WKWebViewConfiguration * configuration = [[WKWebViewConfiguration alloc] init];
-    configuration.userContentController = userContentController;
-    
-    //MessageHandler trustlyOpenURLScheme
-    MessageHandlerOpenScheme * messageHandlerOpenScheme = [[MessageHandlerOpenScheme alloc] init];
-    messageHandlerOpenScheme.parent = self;
-    [userContentController addScriptMessageHandler:messageHandlerOpenScheme name:@"trustlyOpenURLScheme"];
-    
-    // Use configuration when creating WKWebView and attach it to your view
-    self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
-    self.view = self.webView;
-}
+
 RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 
 - (void)goForward

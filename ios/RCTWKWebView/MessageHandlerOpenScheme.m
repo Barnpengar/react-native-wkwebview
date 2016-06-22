@@ -19,7 +19,7 @@
 
 @implementation MessageHandlerOpenScheme
 - (void) userContentController:(WKUserContentController *) userContentController didReceiveScriptMessage:(WKScriptMessage *) message {
-    NSDictionary * parsed = [self getParsedJSON:message];
+    NSDictionary * parsed = [self getParsedJSON:message.body];
     NSString * callback = parsed[@"callback"];
     NSString * urlscheme = parsed[@"urlscheme"];
     
@@ -42,10 +42,12 @@
         return parsed;
 
     } @catch (NSException *exception) {
-        NSLog(@"A JSON parding error occurred:\n %@", exception);
+        NSLog(@"A JSON parsing error occurred:\n %@", exception);
     } @finally {
         
     }
     return nil;
 }
 @end
+
+
