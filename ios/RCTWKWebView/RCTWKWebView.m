@@ -220,7 +220,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
   else if (navigationAction.targetFrame && ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"])) {
     decisionHandler(WKNavigationActionPolicyAllow);
   }
-  else if (navigationAction.targetFrame && ([scheme isEqualToString:@"veckopengenstaging"] || [scheme isEqualToString:@"veckopengen"])) {
+  else if (navigationAction.targetFrame && ([scheme isEqualToString:@"veckopengenstaging"] || [scheme isEqualToString:@"veckopengen"] || [scheme isEqualToString:@"veckopengendev"])) {
     [[UIApplication sharedApplication] openURL:url];
     decisionHandler(WKNavigationActionPolicyAllow);
   }
