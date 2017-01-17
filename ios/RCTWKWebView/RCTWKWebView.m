@@ -8,7 +8,7 @@
 #import <React/RCTLog.h>
 #import <React/RCTUtils.h>
 #import <React/RCTView.h>
-#import "UIView+React.h"
+#import <React/UIView+React.h>
 #import "MessageHandlerOpenScheme.h"
 
 @interface RCTWKWebView () <WKNavigationDelegate, RCTAutoInsetsProtocol>
