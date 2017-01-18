@@ -1,5 +1,5 @@
 #import <WebKit/WebKit.h>
-#import "RCTView.h"
+#import <React/RCTView.h>
 
 @class RCTWKWebView;
 
