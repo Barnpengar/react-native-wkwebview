@@ -183,6 +183,34 @@ var WKWebView = createReactClass({
      * @platform ios
      */
     onShouldStartLoadWithRequest: PropTypes.func,
+    /**
+     * Copies cookies from sharedHTTPCookieStorage when calling loadRequest.
+     * Set this to true to emulate behavior of WebView component.
+     */
+    sendCookies: PropTypes.bool,
+    /**
+     * If set to true, target="_blank" or window.open will be opened in WebView, instead
+     * of new window. Default is false to be backward compatible.
+     */
+    openNewWindowInWebView: PropTypes.bool,
+    /**
+     * Hide the accessory view when the keyboard is open. Default is false to be
+     * backward compatible.
+     */
+    hideKeyboardAccessoryView: PropTypes.bool,
+    /**
+     * Sets the customized user agent by using of the WKWebView
+    */
+    customUserAgent: PropTypes.string,
+    userAgent: PropTypes.string,
+    /**
+     * A Boolean value that determines whether paging is enabled for the scroll view.
+    */
+    pagingEnabled: PropTypes.bool,
+    /**
+     * A Boolean value that sets whether diagonal scrolling is allowed.
+    */
+    directionalLockEnabled: PropTypes.bool,
   },
   getInitialState() {
     return {
