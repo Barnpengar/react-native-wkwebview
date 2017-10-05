@@ -2,6 +2,11 @@
   "name": "react-native-wkwebview",
   "version": "1.1.0",
   "description": "React Native WKWebView for iOS",
+  "dependencies": {
+    "create-react-class": "^15.6.2",
+    "fbjs": "^0.8.3",
+    "prop-types": "^15.6.0"
+  },
   "main": "index.js",
   "repository": {
     "type": "git",
