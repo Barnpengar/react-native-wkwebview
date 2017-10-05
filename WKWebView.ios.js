@@ -165,6 +165,10 @@ var WKWebView = createReactClass({
     /**
      * @platform ios
      */
+    onMessage: PropTypes.func,
+    /**
+     * @platform ios
+     */
     bounces: PropTypes.bool,
     scrollEnabled: PropTypes.bool,
     automaticallyAdjustContentInsets: PropTypes.bool,
@@ -382,6 +386,11 @@ var WKWebView = createReactClass({
   _onProgress(event: Event) {
     var onProgress = this.props.onProgress;
     onProgress && onProgress(event.nativeEvent.progress);
+  },
+    
+  _onMessage(event: Event) {
+    var onMessage = this.props.onMessage;
+    onMessage && onMessage(event.nativeEvent);
   }
 });
 
