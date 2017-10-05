@@ -269,7 +269,7 @@ var WKWebView = createReactClass({
     }
 
     var webView =
-      <RCTWKWebView
+   <RCTWKWebView
         ref={RCT_WEBVIEW_REF}
         key="webViewKey"
         style={webViewStyles}
@@ -278,12 +278,18 @@ var WKWebView = createReactClass({
         bounces={this.props.bounces}
         scrollEnabled={this.props.scrollEnabled}
         contentInset={this.props.contentInset}
+        allowsBackForwardNavigationGestures={this.props.allowsBackForwardNavigationGestures}
         automaticallyAdjustContentInsets={this.props.automaticallyAdjustContentInsets}
+        openNewWindowInWebView={this.props.openNewWindowInWebView}
+        hideKeyboardAccessoryView={this.props.hideKeyboardAccessoryView}
         onLoadingStart={this._onLoadingStart}
         onLoadingFinish={this._onLoadingFinish}
         onLoadingError={this._onLoadingError}
         onProgress={this._onProgress}
+        onMessage={this._onMessage}
         onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
+        pagingEnabled={this.props.pagingEnabled}
+        directionalLockEnabled={this.props.directionalLockEnabled}
       />;
 
     return (
