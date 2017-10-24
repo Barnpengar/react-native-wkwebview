@@ -79,8 +79,7 @@ var WKWebView = createReactClass({
     NavigationType: NavigationType,
   },
   propTypes: {
-    ...View.propTypes,
-
+    ...PropTypes,
     html: deprecatedPropType(
       PropTypes.string,
       'Use the `source` prop instead.'
