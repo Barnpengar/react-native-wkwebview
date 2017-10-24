@@ -176,7 +176,7 @@ var WKWebView = createReactClass({
     onNavigationStateChange: PropTypes.func,
     scalesPageToFit: PropTypes.bool,
     startInLoadingState: PropTypes.bool,
-    style: View.propTypes.style,
+    style: PropTypes.style,
     /**
      * Sets the JS to be injected when the webpage loads.
      */
